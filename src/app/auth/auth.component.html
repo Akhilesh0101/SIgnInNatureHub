@@ -1,0 +1,190 @@
+<div class="container mt-5">
+  <div class="card shadow-lg">
+    <div class=" card-header bg-primary text-white">
+      <h3 class="text-center ">SignIn</h3>
+    </div>
+    <div class="card-body">
+      <!-- Tabs -->
+      <ul class="nav nav-tabs d-flex justify-content-between align-items-center mb-3" id="authTab" role="tablist">
+        <li class="nav-item">
+          <button
+            class="nav-link active"
+            id="user-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#user"
+            type="button"
+            role="tab"
+            aria-controls="user"
+            aria-selected="true"
+          >
+            User
+          </button>
+        </li>
+        <li class="nav-item ml-6">
+          <button
+            class="nav-link"
+            id="admin-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#admin"
+            type="button"
+            role="tab"
+            aria-controls="admin"
+            aria-selected="false"
+          >
+            Admin
+          </button>
+        </li>
+      </ul>
+
+      <!-- Tab Content -->
+      <div class="tab-content mt-4" id="authTabContent">
+        <!-- User Tab -->
+        <div
+          class="tab-pane fade show active"
+          id="user"
+          role="tabpanel"
+          aria-labelledby="user-tab"
+        >
+          <ul class="nav nav-pills mb-3" id="userTab" role="tablist">
+            <li class="nav-item">
+              <button
+                class="nav-link active"
+                id="signin-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#user-signin"
+                type="button"
+                role="tab"
+                aria-controls="user-signin"
+                aria-selected="true"
+              >
+                Sign In
+              </button>
+            </li>
+            <li class="nav-item">
+              <button
+                class="nav-link"
+                id="signup-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#user-signup"
+                type="button"
+                role="tab"
+                aria-controls="user-signup"
+                aria-selected="false"
+              >
+                Sign Up
+              </button>
+            </li>
+          </ul>
+
+          <div class="tab-content">
+            <!-- User Sign In -->
+            <div
+              class="tab-pane fade show active"
+              id="user-signin"
+              role="tabpanel"
+              aria-labelledby="signin-tab"
+            >
+              <form [formGroup]="userSignInForm" (ngSubmit)="onUserSignIn()">
+                <div class="mb-3">
+                  <label for="userEmail" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    id="userEmail"
+                    class="form-control"
+                    formControlName="email"
+                    placeholder="Enter your email"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="userPassword" class="form-label">Password</label>
+                  <input
+                    type="password"
+                    id="userPassword"
+                    class="form-control"
+                    formControlName="password"
+                    placeholder="Enter your password"
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Sign In</button>
+              </form>
+            </div>
+
+            <!-- User Sign Up -->
+            <div
+              class="tab-pane fade"
+              id="user-signup"
+              role="tabpanel"
+              aria-labelledby="signup-tab"
+            >
+              <form [formGroup]="userSignUpForm" (ngSubmit)="onUserSignUp()">
+                <div class="mb-3">
+                  <label for="signupName" class="form-label">Name</label>
+                  <input
+                    type="text"
+                    id="signupName"
+                    class="form-control"
+                    formControlName="name"
+                    placeholder="Enter your name"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="signupEmail" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    id="signupEmail"
+                    class="form-control"
+                    formControlName="email"
+                    placeholder="Enter your email"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="signupPassword" class="form-label">Password</label>
+                  <input
+                    type="password"
+                    id="signupPassword"
+                    class="form-control"
+                    formControlName="password"
+                    placeholder="Enter your password"
+                  />
+                </div>
+                <button type="submit" class="btn btn-success w-100">Sign Up</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Admin Tab -->
+        <div
+          class="tab-pane fade"
+          id="admin"
+          role="tabpanel"
+          aria-labelledby="admin-tab"
+        >
+          <form [formGroup]="adminSignInForm" (ngSubmit)="onAdminSignIn()">
+            <div class="mb-3">
+              <label for="adminEmail" class="form-label">Admin Email</label>
+              <input
+                type="email"
+                id="adminEmail"
+                class="form-control"
+                formControlName="email"
+                placeholder="Enter admin email"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="adminPassword" class="form-label">Password</label>
+              <input
+                type="password"
+                id="adminPassword"
+                class="form-control"
+                formControlName="password"
+                placeholder="Enter password"
+              />
+            </div>
+            <button type="submit" class="btn btn-danger w-100"> Sign In</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
